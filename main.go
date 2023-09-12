@@ -12,7 +12,7 @@ func main() {
 	is len(os.Args) == 2 {
 		array := ReadFile(os.Args[1])
 		value1 := m(array)
-		value2 := value1*float32(len(array)) + float32(currentY)
+		value2 := value1*float32(len(array)) + float32(array[0])
 
 		s := " y = " +strconv.Itoa(int(value1)) + "x +" +strconv.Itoa(int(value2))
 		fmt.Println("Linear Regression Line =" + s)
