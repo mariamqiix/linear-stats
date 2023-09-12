@@ -9,11 +9,8 @@ import (
 )
 
 func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-	var array []int
-	for scanner.Scan() {
-		currentY, _ := strconv.Atoi(scanner.Text())
-		array = append(array, currentY)
+	is len(os.Args) == 2 {
+		array := ReadFile(os.Args[1])
 		value1 := m(array)
 		value2 := value1*float32(len(array)) + float32(currentY)
 
@@ -23,6 +20,22 @@ func main() {
 		fmt.Println("Correlation Coefficent =" + Correlation)
 
 	}
+}
+
+func returnFileinArray(fileName string) []int {
+	ReadFile, error := os.Open(fileName)
+	if error != (nil) {
+		printError(error)
+	}
+	FileScanner := bufio.NewScanner(ReadFile)
+	var numbers []int
+	for FileScanner.Scan() {
+		if s, err := strconv.Atoi(FileScanner.Text()); err == nil {
+			numbers = append(numbers, s)
+		}
+	}
+	ReadFile.Close()
+	return numbers
 }
 
 func m(i []int) float32 {
