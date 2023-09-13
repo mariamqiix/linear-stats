@@ -38,8 +38,13 @@ func returnFileinArray(fileName string) []int {
 }
 
 func m(i []int) float32 {
-	theM := (float32(i[1]) - float32(i[0])/float32(len(1)))
-	return theM
+	ava := 0
+	for x:= 1;x<len(i);x++{
+	theM := (float32(i[x]) - float32(i[0])/float32(x))
+ava+= theM
+}
+ava/=len(i)
+return ava
 }
 
 func CorrelationCoefficent(i []int) float64 {
