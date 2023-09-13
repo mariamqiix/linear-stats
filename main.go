@@ -38,7 +38,7 @@ func returnFileinArray(fileName string) []int {
 }
 
 func m(i []int) float32 {
-	theM := (float32(i[len(i)-1]) - float32(i[0])/float32(len(i)))
+	theM := (float32(i[1]) - float32(i[0])/float32(len(i)))
 	return theM
 }
 
